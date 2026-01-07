@@ -14,3 +14,9 @@ uv pip install pyserial smbus3 spidev
 uv pip install caproto pcaspy softioc pyepics
 uv pip install fastapi[standard] flask
 uv pip install matplotlib seaborn plotly pandas scipy jupyterlab nicegui
+
+# test
+source /opt/epics/venv/activate
+python -c "import epics"
+python -c "import pcaspy"
+python -c "import softioc"
