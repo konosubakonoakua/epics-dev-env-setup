@@ -80,6 +80,7 @@ if [ ${CONFIG_SOURCED} == "False" ]; then
   # YOKOGAWA_DAS=R2-0-2
   # XSPRESS3=2-5
   XXX=R6-3
+  PCAS=v4.13.3
 fi
 
 shallow_repo() {
@@ -206,6 +207,7 @@ if [[ $VME ]];           then   get_repo epics-modules          vme            V
 if [[ $XSPRESS3 ]];      then   get_repo epics-modules          xspress3       XSPRESS3       $XSPRESS3      ; fi
 if [[ $YOKOGAWA_DAS ]];  then   get_repo epics-modules          Yokogawa_DAS   YOKOGAWA_DAS   $YOKOGAWA_DAS  ; fi
 if [[ $XXX ]];           then   get_repo epics-modules          xxx            XXX            $XXX           ; fi
+if [[ $PCAS ]];          then   get_repo epics-modules          pcas           PCAS           $PCAS          ; fi
 
 
 if [[ $ALLENBRADLEY ]]; then
@@ -432,6 +434,14 @@ if [[ $STREAM ]]; then
 
   echo "SSCAN=" >>./configure/RELEASE
   echo "STREAM=" >>./configure/RELEASE
+
+  cd ..
+fi
+
+if [[ $PCAS ]]; then
+  cd pcas-${PCAS//./-}
+
+  echo "EPICS_BASE=${EPICS_BASE}" >>RELEASE.local
 
   cd ..
 fi
