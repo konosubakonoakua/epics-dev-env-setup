@@ -11,7 +11,13 @@ export PCAS="/opt/epics/synApps/support/pcas-v4-13-3/"
 uv pip install msgpack protobuf pyzmq fabric
 uv pip install pyvisa pyvisa-py pyvisa-sim
 uv pip install pyserial smbus3 spidev
-uv pip install caproto pcaspy softioc pyepics
+uv pip install caproto pcaspy pyepics
+
+# BUG: https://github.com/DiamondLightSource/pythonSoftIOC/issues/197
+uv pip install epicscorelibs==7.0.10.99.0.0
+uv pip install softioc==4.6.1 --no-deps
+uv pip install pyyaml cothread pvxslibs epicsdbbuilder
+
 uv pip install fastapi[standard] flask
 uv pip install matplotlib seaborn plotly pandas scipy jupyterlab nicegui
 
